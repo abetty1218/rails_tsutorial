@@ -1,0 +1,16 @@
+<%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
+  <div><%= hidden_field_tag :followed_id, @user.id %></div>
+  <%= f.submit "Follow", class: "btn btn-primary" %>
+<% end %>
+
+
+<h1>題名：決済完了、入金確認メール</h1>
+<p><%= @user.name %>様</p>
+<div>
+  <p>決済が完了しました。</p>
+  <p>この度は、<%= @learning_course.name %>コースにご入金いただきありがとうございます。！</p>
+  <p>以下のURLより講座ページへ移動できます。</p> 
+  <p><%= @learning_course.service.id %><%= @user.id %><%= @learning_course.id %></p>
+  <%= link_to "Activate", service_user_learning_course_url(service_id: @learning_course.service.id, user_id: @user.id, id: @learning_course.id) %>
+  <%#= link_to "Activate", service_user_learning_course_url(service_id: @learning_course.service.id, user_id: @user.id, id: @learning_course.id) %>
+</div>

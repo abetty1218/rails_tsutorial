@@ -1,0 +1,22 @@
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <%= render @users %>
+</ul>
+
+<table id="user_index" class="table-bordered table-striped">
+  <tr>
+    <th>名前</th>
+    <th>メールアドレス</th>
+    <th colspan="2"></th>
+  </tr>
+　<% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+    </tr>
+  <% end %> 
+</table>  
